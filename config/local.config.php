@@ -22,7 +22,7 @@ return [
         // An array of paths from which to glob configuration files after
         // modules are loaded. These effectively override configuration
         // provided by modules themselves. Paths may use GLOB_BRACE notation.
-        'config_glob_paths' => [realpath(__DIR__) . '/autoload/{,*.}{global,local}.php'],
+        'config_glob_paths' => [realpath(__DIR__) . '/autoload/{{,*.}global,{,*.}local}.php'],
         // Whether or not to enable a configuration cache.
         // If enabled, the merged configuration will be cached and used in
         // subsequent requests.

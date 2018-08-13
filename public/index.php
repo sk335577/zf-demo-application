@@ -17,6 +17,14 @@ if (empty(getenv('APPLICATION_ENV'))) {
     putenv('APPLICATION_ENV=' . file_get_contents(__DIR__ . '/../config/environment.php'));
 }
 
+/**
+ * Display all errors when APP_ENV is not production.
+ */
+if (in_array(getenv('APPLICATION_ENV'), array('local', 'development'))) {
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+}
+
 // Decline static file requests back to the PHP built-in webserver
 if (php_sapi_name() === 'cli-server') {
     $path = realpath(__DIR__ . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
