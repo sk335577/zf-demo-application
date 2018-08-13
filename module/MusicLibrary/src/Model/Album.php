@@ -1,6 +1,6 @@
 <?php
 
-namespace Album\Model;
+namespace MusicLibrary\Model;
 
 use DomainException;
 use Zend\Filter\StringTrim;

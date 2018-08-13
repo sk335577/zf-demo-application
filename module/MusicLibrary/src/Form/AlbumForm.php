@@ -1,6 +1,6 @@
 <?php
 
-namespace Album\Form;
+namespace MusicLibrary\Form;
 
 use Zend\Form\Form;
 

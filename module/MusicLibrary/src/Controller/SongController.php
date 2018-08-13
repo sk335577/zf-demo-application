@@ -1,25 +1,35 @@
 <?php
 
-namespace Album\Controller;
+namespace MusicLibrary\Controller;
 
-use Album\Model\AlbumTable;
-use Album\Model\Album;
-use Album\Form\AlbumForm;
+use MusicLibrary\Model\SongTable;
+use MusicLibrary\Model\Song;
+use MusicLibrary\Form\AlbumForm;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class AlbumController extends AbstractActionController {
+class SongController extends AbstractActionController {
 
     private $table;
 
-    public function __construct(AlbumTable $table) {
+    public function __construct(SongTable $table) {
         $this->table = $table;
     }
 
     public function indexAction() {
-        return new ViewModel([
-            'albums' => $this->table->fetchAll(),
-        ]);
+        // Grab the paginator from the AlbumTable:
+        $paginator = $this->table->fetchAll(true);
+
+        // Set the current page to what has been passed in query string,
+        // or to 1 if none is set, or the page is invalid:
+        $page = (int) $this->params()->fromQuery('page', 1);
+        $page = ($page < 1) ? 1 : $page;
+        $paginator->setCurrentPageNumber($page);
+
+        // Set the number of items per page to 10:
+        $paginator->setItemCountPerPage(10);
+
+        return new ViewModel(['paginator' => $paginator]);
     }
 
     public function addAction() {

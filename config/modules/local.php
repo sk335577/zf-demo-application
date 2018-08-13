@@ -28,8 +28,9 @@ return [
     'ZendDeveloperTools',
     'BjyProfiler',
     'SanSessionToolbar',
+    'Zend\Navigation',
     'ModuleLayouts',
     'Application',
     'Blog',
-    'Album',
+    'MusicLibrary',
 ];
