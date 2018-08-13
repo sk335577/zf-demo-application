@@ -28,6 +28,7 @@ return [
     'ZendDeveloperTools',
     'BjyProfiler',
     'SanSessionToolbar',
+    'ModuleLayouts',
     'Application',
     'Blog',
     'Album',
