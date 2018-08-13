@@ -4,7 +4,7 @@ namespace MusicLibrary\Controller;
 
 use MusicLibrary\Model\SongTable;
 use MusicLibrary\Model\Song;
-use MusicLibrary\Form\AlbumForm;
+use MusicLibrary\Form\SongForm;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -34,7 +34,7 @@ class SongController extends AbstractActionController {
 
     public function addAction() {
         $request = $this->getRequest();
-        $form = new AlbumForm();
+        $form = new SongForm();
 
         if ($request->isGet()) {
             $form->get('submit')->setValue('Add');

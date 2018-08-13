@@ -1,0 +1,37 @@
+<?php
+$title = 'Add new song';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<?php
+// This provides a default CSS class and placeholder text for the title element:
+$song = $form->get('title');
+$song->setAttribute('class', 'form-control');
+$song->setAttribute('placeholder', 'Song title');
+
+
+// This provides CSS classes for the submit button:
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+$form->setAttribute('action', $this->url('songs', ['action' => 'add']));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+<?php
+// Wrap the elements in divs marked as form groups, and render the
+// label, element, and errors separately within 
+?>
+<div class="form-group">
+    <?= $this->formLabel($song) ?>
+    <?= $this->formElement($song) ?>
+    <?= $this->formElementErrors()->render($song, ['class' => 'help-block']) ?>
+</div>
+
+
+
+<?php
+echo $this->formSubmit($submit);
+echo $this->formHidden($form->get('id'));
+echo $this->form()->closeTag();

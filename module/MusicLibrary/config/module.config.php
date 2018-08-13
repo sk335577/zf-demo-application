@@ -25,21 +25,21 @@ return [
             ],
             [
                 'label' => 'Music Library',
-                'route' => 'albums',
+                'route' => 'music-library/albums',
                 'pages' => [
                     [
                         'label' => 'Add',
-                        'route' => 'albums',
+                        'route' => 'music-library/albums',
                         'action' => 'add',
                     ],
                     [
                         'label' => 'Edit',
-                        'route' => 'albums',
+                        'route' => 'music-library/albums',
                         'action' => 'edit',
                     ],
                     [
                         'label' => 'Delete',
-                        'route' => 'albums',
+                        'route' => 'music-library/albums',
                         'action' => 'delete',
                     ],
                 ],
@@ -48,19 +48,50 @@ return [
     ],
     'router' => [
         'routes' => [
-            'albums' => [
+            'music-library' => [
                 'type' => Segment::class,
                 'options' => [
-                    'route' => '/albums[/:id][/:action]',
+                    'route' => '/music-library',
                     'constraints' => [
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id' => '[0-9]+',
                     ],
                     'defaults' => [
-                        'controller' => Controller\AlbumController::class,
-                        'action' => 'index',
+                        'controller' => Controller\HomeController::class,
+                        'action' => 'home',
                     ],
                 ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    'albums' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route' => '/albums[/:action[/:id]]',
+                            'constraints' => [
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id' => '[0-9]+',
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\AlbumController::class,
+                                'action' => 'index',
+                            ],
+                        ],
+                    ],
+                    'songs' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route' => '/songs[/:action[/:id]]',
+                            'constraints' => [
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id' => '[0-9]+',
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\SongController::class,
+                                'action' => 'index',
+                            ],
+                        ],
+                    ],
+                ]
             ],
         ],
     ],
