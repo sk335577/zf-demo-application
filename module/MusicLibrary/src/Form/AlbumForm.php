@@ -28,6 +28,22 @@ class AlbumForm extends Form {
                 'label' => 'Artist',
             ],
         ]);
+//        $this->add
+//                (
+//                array
+//                    (
+//                    'type' => 'Zend\Form\Element\Csrf',
+//                    'name' => 'prevent',
+//                    'attributes' => array('type' => 'text'),
+//                    'options' => array
+//                        (
+//                        'csrf_options' => array
+//                            (
+//                            'timeout' => 1200
+//                        )
+//                    ),
+//                )
+//        );
         $this->add([
             'name' => 'submit',
             'type' => 'submit',
@@ -36,7 +52,6 @@ class AlbumForm extends Form {
                 'id' => 'submitbutton',
             ],
         ]);
- 
     }
 
 }

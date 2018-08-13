@@ -18,7 +18,7 @@ $artist->setAttribute('placeholder', 'Artist');
 $submit = $form->get('submit');
 $submit->setAttribute('class', 'btn btn-primary');
 
-$form->setAttribute('action', $this->url('albums', ['action' => 'add']));
+$form->setAttribute('action', $this->url('music-library/albums', ['action' => 'add']));
 $form->prepare();
 
 echo $this->form()->openTag($form);
