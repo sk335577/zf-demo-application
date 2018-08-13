@@ -29,6 +29,6 @@ return [
     'BjyProfiler',
     'SanSessionToolbar',
     'Application',
-    'Album',
     'Blog',
+    'Album',
 ];

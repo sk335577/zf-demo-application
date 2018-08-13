@@ -14,12 +14,12 @@ return [
     ],
     'view_manager' => [
         'template_path_stack' => [
-            'album' => __DIR__ . '/../view',
+            __DIR__ . '/../view',
         ],
     ],
     'router' => [
         'routes' => [
-            'album' => [
+            'blog' => [
                 'type' => Segment::class,
                 'options' => [
                     'route' => '/blog[/:action[/:id]]',
