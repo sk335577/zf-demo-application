@@ -16,14 +16,14 @@ return [
         'display_exceptions' => true,
     ],
     'db' => [
-        'driver' => \PDO::class,
-        'database' => 'superheroes',
+        'driver' => 'Mysqli',
+        'database' => 'junk_albums',
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
         'driver_options' => array(
             'buffer_results' => true,
-            \PDO::MYSQL_ATTR_INIT_COMMAND => " SET SESSION time_zone = '+00:00';SET NAMES 'UTF8';"),
+            'MYSQLI_INIT_COMMAND' => " SET SESSION time_zone = '+00:00';"),
         'adapters' => [
             'db2' => [
                 'database' => 'superheroes',
