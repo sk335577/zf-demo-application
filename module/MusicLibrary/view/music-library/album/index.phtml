@@ -27,19 +27,17 @@ $this->headTitle($title);
 
 </table>
 
-<?php
-// In module/Album/view/album/album/index.phtml:
-// Add at the end of the file after the table:
-?>
-<?=
-$this->paginationControl(
-        // The paginator object:
-        $this->paginator,
-        // The scrolling style:
-        'sliding',
-        // The partial to use to render the control:
-        'music-library/partial/paginator',
-        // The route to link to when a user clicks a control link:
-        ['route' => 'music-library/albums']
-)
-?>
+<div class="text-center">
+    <?=
+    $this->paginationControl(
+            // The paginator object:
+            $this->paginator,
+            // The scrolling style:
+            'sliding',
+            // The partial to use to render the control:
+            'music-library/partial/paginator',
+            // The route to link to when a user clicks a control link:
+            ['route' => 'music-library/albums']
+    )
+    ?>
+</div>

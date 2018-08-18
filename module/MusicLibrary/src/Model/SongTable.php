@@ -60,13 +60,15 @@ class SongTable {
         return $row;
     }
 
-    public function saveAlbum(Album $album) {
+    public function saveSong(Song $song) {
         $data = [
-            'artist' => $album->artist,
-            'title' => $album->title,
+            'title' => $song->title,
         ];
-
-        $id = (int) $album->id;
+        echo "<pre>";
+        print_r($song);
+        echo "</pre>";
+        die;
+        $id = (int) $song->id;
 
         if ($id === 0) {
             $this->tableGateway->insert($data);

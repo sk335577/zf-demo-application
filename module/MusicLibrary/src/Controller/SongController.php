@@ -41,15 +41,26 @@ class SongController extends AbstractActionController {
             return ['form' => $form];
         } else {
             if ($request->isPost()) {
-                $album = new Album();
-                $form->setInputFilter($album->getInputFilter());
-                $form->setData($request->getPost());
+                $data = array_merge_recursive($request->getPost()->toArray(), $request->getFiles()->toArray());
+                $form->setData($data);
                 if (!$form->isValid()) {
                     return ['form' => $form];
                 }
-                $album->exchangeArray($form->getData());
-                $this->table->saveAlbum($album);
-                return $this->redirect()->toRoute('album');
+                $file_data = pathinfo($_FILES['file']['name']);
+                echo "<pre>";
+                print_r($file_data);
+                print_r($_FILES);
+                echo "</pre>";
+                $song = new Song();
+//                $form->setInputFilter($song->getInputFilter());
+//                $form->setData($request->getPost());
+//                if (!$form->isValid()) {
+//                    return ['form' => $form];
+//                }
+
+                $song->exchangeArray($form->getData());
+                $this->table->saveSong($song);
+                return $this->redirect()->toRoute('music-library/songs');
             }
         }
     }

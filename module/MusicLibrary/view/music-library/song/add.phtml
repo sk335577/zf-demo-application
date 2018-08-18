@@ -10,11 +10,14 @@ $song->setAttribute('class', 'form-control');
 $song->setAttribute('placeholder', 'Song title');
 
 
+$file = $form->get('file');
+$file->setAttribute('class', 'form-controlx');
+
 // This provides CSS classes for the submit button:
 $submit = $form->get('submit');
 $submit->setAttribute('class', 'btn btn-primary');
 
-$form->setAttribute('action', $this->url('songs', ['action' => 'add']));
+$form->setAttribute('action', $this->url('music-library/songs', ['action' => 'add']));
 $form->prepare();
 
 echo $this->form()->openTag($form);
@@ -28,6 +31,12 @@ echo $this->form()->openTag($form);
     <?= $this->formElement($song) ?>
     <?= $this->formElementErrors()->render($song, ['class' => 'help-block']) ?>
 </div>
+<div class="form-group">
+    <?= $this->formLabel($file) ?>
+    <?= $this->formFile($file) ?>
+    <?= $this->formElementErrors()->render($file, ['class' => 'help-block']) ?>
+</div>
+
 
 
 

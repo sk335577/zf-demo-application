@@ -5,3 +5,4 @@ data/cache/*
 !data/cache/.gitkeep
 phpunit.xml
 /data/junk/
+/public/music-library/media/
