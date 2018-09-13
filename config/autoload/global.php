@@ -15,5 +15,6 @@ return [
     'timezone' => 'UTC',
     'module_layouts' => [
         'MusicLibrary' => 'music-library/layout',
+        'Admin' => 'admin/layout',
     ]
 ];
