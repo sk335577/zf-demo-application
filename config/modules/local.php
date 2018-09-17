@@ -33,4 +33,5 @@ return [
     'Application',
     'Blog',
     'MusicLibrary',
+    'Admin',
 ];
