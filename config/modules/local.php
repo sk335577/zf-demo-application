@@ -34,4 +34,5 @@ return [
     'Blog',
     'MusicLibrary',
     'Admin',
+//    'AuthGuardManager',
 ];

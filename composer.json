@@ -57,7 +57,8 @@
             "Blog\\": "module/Blog/src/",
             "ModuleLayouts\\": "module/ModuleLayouts/src/",
             "Admin\\": "module/Admin/src/",
-            "FileUploadManager\\": "module/FileUploadManager/src/"
+            "FileUploadManager\\": "module/FileUploadManager/src/",
+            "AuthGuardManager\\": "module/AuthGuardManager/src/"
         }
     },
     "autoload-dev": {

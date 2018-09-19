@@ -4,16 +4,30 @@ namespace Admin\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Application\Controller\BaseController\BaseActionController;
 
-class IndexController extends AbstractActionController {
+class IndexController extends BaseActionController {
 
     public function indexAction() {
         return false;
     }
 
-    public function login() {
-        die('x');
-        $this->layout(null);
+    public function loginAction() {
+
+        $this->prepareRequest();
+
+        if ($this->settings['method'] == 'POST') {
+            echo "<pre>";
+            print_r($this->settings);
+            echo "</pre>";
+            die;
+        } else {
+            if ($this->settings['method'] == 'GET') {
+                $viewModel = new ViewModel();
+                $viewModel->setTerminal(true);
+                return $viewModel;
+            }
+        }
     }
 
 }

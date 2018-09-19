@@ -25,33 +25,12 @@ return [
             'admin' => [
                 'type' => Segment::class,
                 'options' => [
-                    'route' => '/admin[/]',
-                    'constraints' => [
-                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'id' => '[0-9]+',
-                    ],
+                    'route' => '/admin[/[:action]]',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action' => 'index',
                     ],
                 ],
-                'may_terminate' => true,
-                'child_routes' => [
-                    'login' => [
-                        'type' => Segment::class,
-                        'options' => [
-                            'route' => '/admin/login[/]',
-                            'constraints' => [
-                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'id' => '[0-9]+',
-                            ],
-                            'defaults' => [
-                                'controller' => Controller\IndexController::class,
-                                'action' => 'login',
-                            ],
-                        ],
-                    ],
-                ]
             ],
         ],
     ],

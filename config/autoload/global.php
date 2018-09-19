@@ -16,5 +16,5 @@ return [
     'module_layouts' => [
         'MusicLibrary' => 'music-library/layout',
         'Admin' => 'admin/layout',
-    ]
+    ],
 ];
