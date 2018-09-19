@@ -21,7 +21,21 @@ class Module {
         return include __DIR__ . '/../config/module.config.php';
     }
 
-    public function onBootstrap(MvcEvent $mvcEvent) {
+    public function onBootstrap(MvcEvent $e) {
+
+        $e->getApplication()->getEventManager()->getSharedManager()->attach('Zend\Mvc\Controller\AbstractController', 'dispatch', function($e) {
+            $controller = $e->getTarget();
+            $controllerClass = get_class($controller);
+            $moduleNamespace = substr($controllerClass, 0, strpos($controllerClass, '\\'));
+            $config = $e->getApplication()->getServiceManager()->get('config');
+
+            if (isset($config['module_layouts'][$moduleNamespace])) {
+                $controller->layout($config['module_layouts'][$moduleNamespace]);
+            }
+        }, 100);
+    }
+
+    public function onBootstrapX(MvcEvent $mvcEvent) {
         $this->bootstrapSession($mvcEvent);
 
         $this->auth = $mvcEvent->getApplication()->getServiceManager()->get(AuthenticationService::class);

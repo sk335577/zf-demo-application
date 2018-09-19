@@ -24,7 +24,7 @@ class IndexController extends BaseActionController {
         } else {
             if ($this->settings['method'] == 'GET') {
                 $viewModel = new ViewModel();
-                $viewModel->setTerminal(true);
+                $this->layout('admin/layout/login');
                 return $viewModel;
             }
         }

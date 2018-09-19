@@ -15,6 +15,7 @@ return [
     'view_manager' => [
         'template_map' => [
             'admin/layout' => __DIR__ . '/../view/layout/layout.phtml',
+            'admin/layout/login' => __DIR__ . '/../view/layout/layout_login.phtml',
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
