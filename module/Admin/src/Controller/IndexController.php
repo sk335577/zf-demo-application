@@ -9,7 +9,7 @@ use Application\Controller\BaseController\BaseActionController;
 class IndexController extends BaseActionController {
 
     public function indexAction() {
-        return false;
+        return [];
     }
 
     public function loginAction() {

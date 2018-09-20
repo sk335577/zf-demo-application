@@ -17,4 +17,5 @@ return [
         'MusicLibrary' => 'music-library/layout',
         'Admin' => 'admin/layout',
     ],
+    'application_name' => 'ZF Demo Application'
 ];

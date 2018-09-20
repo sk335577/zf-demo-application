@@ -16,6 +16,10 @@ return [
         'template_map' => [
             'admin/layout' => __DIR__ . '/../view/layout/layout.phtml',
             'admin/layout/login' => __DIR__ . '/../view/layout/layout_login.phtml',
+            'admin/partial/header' => __DIR__ . '/../view/partial/header.phtml',
+            'admin/partial/sidebar-left' => __DIR__ . '/../view/partial/sidebar-left.phtml',
+            'admin/partial/footer' => __DIR__ . '/../view/partial/footer.phtml',
+            'admin/partial/control-sidebar' => __DIR__ . '/../view/partial/control-sidebar.phtml',
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
