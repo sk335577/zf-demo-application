@@ -32,6 +32,14 @@ return [
             Controller\IndexController::class => InvokableFactory::class,
         ],
     ],
+    'view_helpers' => [
+        'factories' => [
+            View\Helper\ApplicationHelper::class => View\Helper\Factory\ApplicationHelperFactory::class,
+        ],
+        'aliases' => [
+            'application_helper' => View\Helper\ApplicationHelper::class,
+        ]
+    ],
     'view_manager' => [
         'display_not_found_reason' => true,
         'display_exceptions' => true,
